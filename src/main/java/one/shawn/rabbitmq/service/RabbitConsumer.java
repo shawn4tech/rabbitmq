@@ -12,7 +12,7 @@ import one.shawn.rabbitmq.model.RabbitMessage;
 public class RabbitConsumer {
 	static final Logger logger = LoggerFactory.getLogger(RabbitConsumer.class);
 	  
-    @RabbitListener(queues = RabbitConfig.QUEUE_MESSAGES)
+    @RabbitListener(queues = RabbitConfig.QUEUE_MESSAGES, concurrency = "3")
     public void processOrder(RabbitMessage message) {
         logger.info("Message Received: " + message);
     }
